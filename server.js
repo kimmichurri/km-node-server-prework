@@ -6,6 +6,12 @@ server.listen(3000, () => {
   console.log('The HTTP server is listening at Port 3000.');
 });
 
+let messages = [
+  { 'id': 1, 'user': 'kim', 'message': 'just doing my prework!' },
+  { 'id': 2, 'user': 'yoshi', 'message': 'cheep' },
+  { 'id': 3, 'user': 'buffy', 'message': 'chirp' }
+];
+
 server.on('request', (request, response) => {
   if (request.method === 'GET') {
     getAllMessages(response);
@@ -20,12 +26,6 @@ server.on('request', (request, response) => {
     });
   }
 });
-
-let messages = [
-  { 'id': 1, 'user': 'kim', 'message': 'just doing my prework!' },
-  { 'id': 2, 'user': 'yoshi', 'message': 'cheep' },
-  { 'id': 3, 'user': 'buffy', 'message': 'chirp' }
-];
 
 const getAllMessages = (response) => {
   response.writeHead(200, { 'Content-Type' : 'JSON' });
