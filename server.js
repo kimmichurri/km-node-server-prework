@@ -27,3 +27,8 @@ let messages = [
   { 'id': 3, 'user': 'buffy', 'message': 'chirp' }
 ];
 
+const getAllMessages = (response) => {
+  response.writeHead(200, { 'Content-Type' : 'JSON'})
+  response.write(JSON.stringify(messages));
+  response.end();
+}
