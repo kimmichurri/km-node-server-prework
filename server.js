@@ -28,7 +28,14 @@ let messages = [
 ];
 
 const getAllMessages = (response) => {
-  response.writeHead(200, { 'Content-Type' : 'JSON'})
+  response.writeHead(200, { 'Content-Type' : 'JSON' });
+  response.write(JSON.stringify(messages));
+  response.end();
+}
+
+const addMessage = (newMessage, response) => {
+  messages.push(newMessage);
+  response.writeHead(201, { 'Content-Type' : 'JSON' });
   response.write(JSON.stringify(messages));
   response.end();
 }
